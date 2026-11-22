@@ -8,6 +8,8 @@
 ## Author: MeioNeiz
 ## X-Website: https://github.com/MeioNeiz/MeioBags
 ## X-License: MIT
+## X-Curse-Project-ID: 1824504
+## X-Wago-ID: mNww3zNo
 ## OptionalDeps: Baganator, ShardKeeper
 ## SavedVariables: MeioBagsDB
 
