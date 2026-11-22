@@ -1,0 +1,5 @@
+<Bindings>
+  <Binding name="MEIOBAGS_DELETE" header="MEIOBAGS" category="ADDONS">
+    MeioBags.Key()
+  </Binding>
+</Bindings>
