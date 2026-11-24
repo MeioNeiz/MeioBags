@@ -15,6 +15,7 @@ full: it deletes the junk stack that sells for least, one per press, and says wh
 - Never deletes quest items, a stack that sells for more than 1 gold, or anything in combat
 - Opens clams, sacks and unlocked lockboxes for you, one per click or key press; never in
   combat, while looting, at a vendor, bank, mailbox or auction house, or with full bags
+- Opening a vendor sells all your junk; hold Shift while opening to skip it
 - Baganator marks the same junk in your bags, unless you picked another junk plugin there
 
 Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
@@ -24,6 +25,7 @@ Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
   item into chat; again to undo)
 - `/meiobags list`: your junk and keep lists
 - `/meiobags open on|off`: open containers for you
+- `/meiobags sell on|off`: sell your junk when you open a vendor
 - `/meiobags rxp`: with RestedXP Guides, turn its Inventory Manager off and move its delete
   key and junk marks to Meio Bags (its vendor auto-sell stops too)
 - `/meiobags help`

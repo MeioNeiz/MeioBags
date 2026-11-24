@@ -1,5 +1,11 @@
 # Meio Bags
 
+## 1.1.0
+
+- Opening a vendor sells all your junk (greys and your junk list, never your keep list or quest
+  items); hold Shift while opening to skip it. `/meiobags sell on|off` or Settings
+- Turns FlareUI's Sell Junk off while on, since it sells only greys, kept ones too
+
 ## 1.0.0
 
 - First release: one key deletes your cheapest junk, one stack per press, never quest items,

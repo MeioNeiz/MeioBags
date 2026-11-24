@@ -1,10 +1,10 @@
 ## Interface: 16001
 ## Title: MeioBags
-## Notes: One key deletes your cheapest junk. Junk marked in Baganator, containers opened for you. /meiobags
+## Notes: One key deletes your cheapest junk; vendors buy the rest. Junk marked in Baganator, containers opened for you. /meiobags
 ## Category: Meio
 ## IconTexture: Interface\Icons\INV_Misc_Bag_08
 ## AddonCompartmentFunc: MeioBags_OnAddonCompartmentClick
-## Version: 1.0.0
+## Version: 1.1.0
 ## Author: MeioNeiz
 ## X-Website: https://github.com/MeioNeiz/MeioBags
 ## X-License: MIT
@@ -15,6 +15,7 @@
 
 Core.lua
 Junk.lua
+Sell.lua
 Open.lua
 Takeover.lua
 Settings.lua

@@ -39,6 +39,11 @@ local function RegisterSettings()
       .. "/meiobags delete)." .. (ns.HasShardKeeper() and " Soul Shards are left alone." or ""),
       true))
   end
+  Header(layout, "Vendors", "Opening a vendor sells all your junk (the same junk as the "
+    .. "key, at any value). Hold Shift while opening to skip it.")
+  Checkbox("sell", "Sell junk", "Sells your junk when you open a vendor. Turns FlareUI's Sell "
+    .. "Junk off, which sells only grey items, kept ones too. /meiobags sell on||off does the "
+    .. "same.")
   Header(layout, "Containers", "Clams, sacks and unlocked lockboxes.")
   Checkbox("open", "Open containers", "Bag items that hold loot are opened one at a time, on "
     .. "your next click in the world or key press. Never in combat, while looting, at a "
@@ -65,6 +70,8 @@ local function Help()
     ns.Line(ns.Cmd(ns.SLASH .. " shards on||off") .. " - the key deletes extra Soul Shards "
       .. "first (now " .. ns.OnOff(ns.db.shards) .. ")")
   end
+  ns.Line(ns.Cmd(ns.SLASH .. " sell on||off") .. " - sell your junk when you open a vendor, "
+    .. "Shift to skip (now " .. ns.OnOff(ns.db.sell) .. ")")
   ns.Line(ns.Cmd(ns.SLASH .. " open on||off") .. " - open containers on your next click or "
     .. "key press (now " .. ns.OnOff(ns.db.open) .. ")")
   if ns.HasRXP() then
@@ -125,10 +132,12 @@ SlashCmdList.MEIOBAGS = function(msg)
     List()
   elseif word == "rxp" then
     ns.TakeOverRXP()
-  elseif (word == "shards" or word == "open") and (arg == "on" or arg == "off") then
+  elseif (word == "shards" or word == "open" or word == "sell") and (arg == "on" or arg == "off") then
     Set(word, arg == "on")
-    local what = { shards = "extra Soul Shards first ", open = "opening containers " }
+    local what = { shards = "extra Soul Shards first ", open = "opening containers ",
+      sell = "selling junk at vendors " }
     ns.Say(what[word] .. ns.OnOff(arg == "on"))
+    if word == "sell" then ns.TakeOverFlare() end
   else
     ns.Say('unknown command "' .. word .. '"')
     Help()
@@ -141,6 +150,7 @@ MeioBags = {
   Key = function() ns.Key() end,
   DeleteJunk = function() ns.DeleteJunk() end,
   IsJunk = function(itemID) return ns.db ~= nil and ns.IsJunk(itemID) end,
+  IsKept = function(itemID) return ns.db ~= nil and ns.db.keep[itemID] == true end,
 }
 BINDING_HEADER_MEIOBAGS = "MeioBags"
 BINDING_NAME_MEIOBAGS_DELETE = ns.KeyName()

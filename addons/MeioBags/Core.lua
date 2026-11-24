@@ -8,7 +8,7 @@ ns.SLASH = "/meiobags"
 ns.GOLD, ns.MUTED, ns.GOOD, ns.BAD = "|cffffd100", "|cff999999", "|cff80ff80", "|cffff8080"
 ns.SETTINGS_PATH = "Esc > Options > AddOns > MeioBags"
 ns.KEY_PATH = "Esc > Options > Keybindings > AddOns > MeioBags"
-ns.DEFAULTS = { shards = true, open = true }
+ns.DEFAULTS = { shards = true, open = true, sell = true }
 
 function ns.Say(msg) print(PREFIX .. msg) end
 function ns.Line(msg) print("  " .. msg) end
