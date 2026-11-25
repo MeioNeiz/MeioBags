@@ -24,6 +24,9 @@ one per press, and says what went. With the loot window open, it then loots.
 - Opening a vendor sells all your junk; hold Shift while opening to skip it
 - Baganator marks the same junk in your bags, unless you picked another junk plugin there
 
+![At a vendor: four grey stacks gone from the bags, and in chat "sold 4 junk items for 1
+gold 12 silver 97 copper"](docs/vendor.png)
+
 Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
 
 - `/meiobags delete`: delete the cheapest junk now
