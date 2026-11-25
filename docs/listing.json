@@ -13,6 +13,11 @@
       "description": "Full bags: Inventory is full, then one key press deletes the cheapest grey stack and says so in chat"
     },
     {
+      "file": "loot.png",
+      "title": "Room for your loot",
+      "description": "Loot won't fit: one press deletes junk from a bag the drop can go in, skipping cheaper junk in the Reagent Pouch, then loots it"
+    },
+    {
       "file": "vendor.png",
       "title": "Sold at the vendor",
       "description": "Open a vendor and your junk sells by itself; chat says how many items went and for how much"
