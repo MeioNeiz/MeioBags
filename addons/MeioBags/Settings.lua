@@ -28,15 +28,15 @@ local function RegisterSettings()
     .. "plus /meiobags junk <item>, minus /meiobags keep <item>. Never in combat, never quest "
     .. "items, never a stack that sells for more than " .. GetMoneyString(ns.MAX_VALUE, true)
     .. ". Baganator marks the same junk when its junk plugin is MeioBags.")
-  if ns.HasShardKeeper() then
-    Checkbox("shards", "Shards first", "A press first deletes the Soul Shards ShardKeeper "
+  if ns.HasMeioShards() then
+    Checkbox("shards", "Shards first", "A press first deletes the Soul Shards MeioShards "
       .. "counts as extra (above its cap, or loose with a full soul bag). Only once none are "
       .. "left does it delete junk. /meiobags shards on||off does the same.")
   end
   if CreateSettingsButtonInitializer then
     layout:AddInitializer(CreateSettingsButtonInitializer("Cheapest junk item", "Delete now",
       function() ns.DeleteJunk() end, "Deletes the junk stack that sells for least (same as "
-      .. "/meiobags delete)." .. (ns.HasShardKeeper() and " Soul Shards are left alone." or ""),
+      .. "/meiobags delete)." .. (ns.HasMeioShards() and " Soul Shards are left alone." or ""),
       true))
   end
   Header(layout, "Vendors", "Opening a vendor sells all your junk (the same junk as the "
@@ -66,7 +66,7 @@ local function Help()
     .. "(again to undo)")
   ns.Line(ns.Cmd(ns.SLASH .. " keep <item>") .. " - never junk, even if grey (again to undo)")
   ns.Line(ns.Cmd(ns.SLASH .. " list") .. " - the junk and keep lists")
-  if ns.HasShardKeeper() then
+  if ns.HasMeioShards() then
     ns.Line(ns.Cmd(ns.SLASH .. " shards on||off") .. " - the key deletes extra Soul Shards "
       .. "first (now " .. ns.OnOff(ns.db.shards) .. ")")
   end

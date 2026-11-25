@@ -1,5 +1,5 @@
 -- One key deletes the cheapest junk item (a warlock's extra Soul Shards first, through
--- ShardKeeper when loaded), junk marked in Baganator, containers opened. Each feature file
+-- MeioShards when loaded), junk marked in Baganator, containers opened. Each feature file
 -- registers its own events here.
 local ADDON, ns = ...
 
@@ -16,13 +16,13 @@ function ns.Cmd(text) return ns.GOLD .. text .. "|r" end
 function ns.OnOff(on) return on and ns.GOOD .. "on|r" or ns.BAD .. "off|r" end
 function ns.Plural(n) return n == 1 and "" or "s" end
 
--- ShardKeeper (optional) only trims for warlocks
-function ns.HasShardKeeper()
-  return type(_G.ShardKeeper) == "table" and select(2, UnitClass("player")) == "WARLOCK"
+-- MeioShards (optional) only trims for warlocks
+function ns.HasMeioShards()
+  return type(_G.MeioShards) == "table" and select(2, UnitClass("player")) == "WARLOCK"
 end
 
 function ns.KeyName()
-  return ns.HasShardKeeper() and "Delete extra Soul Shards, else the cheapest junk item"
+  return ns.HasMeioShards() and "Delete extra Soul Shards, else the cheapest junk item"
     or "Delete the cheapest junk item"
 end
 

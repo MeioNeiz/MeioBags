@@ -1,5 +1,9 @@
 # Meio Bags
 
+## 1.1.1
+
+- Works with MeioShards (was ShardKeeper)
+
 ## 1.1.0
 
 - Opening a vendor sells all your junk (greys and your junk list, never your keep list or quest

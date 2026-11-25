@@ -1,5 +1,5 @@
 -- Junk: grey items plus the ones put on the junk list, minus the keep list, never quest
--- items. The key deletes one per press: extra Soul Shards first (ShardKeeper, when loaded),
+-- items. The key deletes one per press: extra Soul Shards first (MeioShards, when loaded),
 -- else the junk stack that sells for least, if that is at most MAX_VALUE. Never in combat.
 -- DeleteCursorItem needs a hardware event, so only from the key, a click or a slash.
 local _, ns = ...
@@ -99,7 +99,7 @@ function ns.Key()
     ns.Say(ns.BAD .. "not in combat|r")
     return
   end
-  local sk = ns.db.shards and _G.ShardKeeper
+  local sk = ns.db.shards and _G.MeioShards
   if sk and sk.Trim and sk.Trim(true) then return end
   ns.DeleteJunk()
 end

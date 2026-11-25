@@ -4,13 +4,13 @@
 ## Category: Meio
 ## IconTexture: Interface\Icons\INV_Misc_Bag_08
 ## AddonCompartmentFunc: MeioBags_OnAddonCompartmentClick
-## Version: 1.1.0
+## Version: 1.1.1
 ## Author: MeioNeiz
 ## X-Website: https://github.com/MeioNeiz/MeioBags
 ## X-License: MIT
 ## X-Curse-Project-ID: 1824504
 ## X-Wago-ID: mNww3zNo
-## OptionalDeps: Baganator, ShardKeeper
+## OptionalDeps: Baganator, MeioShards
 ## SavedVariables: MeioBagsDB
 
 Core.lua

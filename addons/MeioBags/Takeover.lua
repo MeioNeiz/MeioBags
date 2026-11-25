@@ -1,5 +1,5 @@
 -- RestedXP's Inventory Manager does the same jobs and fights ours: it keeps Baganator's junk
--- plugin slot, and its delete key skips ShardKeeper. /meiobags rxp hands it over, only when
+-- plugin slot, and its delete key skips MeioShards. /meiobags rxp hands it over, only when
 -- asked (it also stops RXP's vendor auto-sell):
 -- - its Inventory Manager off; after a /reload RXP never registers its Baganator junk
 --   plugin, so Baganator picks ours
