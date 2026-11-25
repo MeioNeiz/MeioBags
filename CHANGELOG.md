@@ -1,5 +1,13 @@
 # Meio Bags
 
+## 1.2.0
+
+- Your loot fits: the key deletes junk from a bag your loot can use first, never a reagent
+  bag, soul bag or quiver slot that normal loot can't go in
+- With the loot window open, the key loots after the delete
+- Never tries to delete in combat or during a boss; in a dungeon that blocks deletes it says
+  so once instead of failing
+
 ## 1.1.1
 
 - Works with MeioShards (was ShardKeeper)

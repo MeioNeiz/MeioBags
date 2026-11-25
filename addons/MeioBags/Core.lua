@@ -28,6 +28,31 @@ end
 
 function ns.LastBag() return NUM_TOTAL_EQUIPPED_BAG_SLOTS or NUM_BAG_SLOTS or 4 end
 
+-- The client refuses addon deletes in combat and under these AddOn restrictions (Warlock
+-- Tools Forever saw ADDON_ACTION_BLOCKED from a key press in a dungeon). Map, set for a whole
+-- dungeon visit, may allow it: Junk.lua tries and remembers a refusal until the next loading
+-- screen.
+local HARD = { "Combat", "Encounter", "ChallengeMode", "PvPMatch" }
+
+local function Restricted(name)
+  local kinds = Enum and Enum.AddOnRestrictionType
+  local api = C_RestrictedActions and C_RestrictedActions.IsAddOnRestrictionActive
+  if not (api and kinds and kinds[name]) then return false end
+  return api(kinds[name]) == true
+end
+
+function ns.InCombat()
+  if InCombatLockdown() then return true end
+  local fighting = UnitAffectingCombat("player")
+  if (issecretvalue and issecretvalue(fighting)) or fighting then return true end
+  for _, name in ipairs(HARD) do
+    if Restricted(name) then return true end
+  end
+  return false
+end
+
+function ns.MapRestricted() return Restricted("Map") end
+
 -- one handler list per event, each in its own pcall so one feature's error can't stop the
 -- others. Events this client doesn't have are skipped: RegisterEvent throws on them.
 local frame = CreateFrame("Frame")

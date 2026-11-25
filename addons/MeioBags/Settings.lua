@@ -27,7 +27,9 @@ local function RegisterSettings()
     .. ns.KEY_PATH .. "), click the button below or type /meiobags delete. Junk: grey items, "
     .. "plus /meiobags junk <item>, minus /meiobags keep <item>. Never in combat, never quest "
     .. "items, never a stack that sells for more than " .. GetMoneyString(ns.MAX_VALUE, true)
-    .. ". Baganator marks the same junk when its junk plugin is MeioBags.")
+    .. ". Junk goes first from a bag your loot can use (not the reagent bag, soul bag or "
+    .. "quiver, unless the loot goes there); with the loot window open, it then loots. "
+    .. "Baganator marks the same junk when its junk plugin is MeioBags.")
   if ns.HasMeioShards() then
     Checkbox("shards", "Shards first", "A press first deletes the Soul Shards MeioShards "
       .. "counts as extra (above its cap, or loose with a full soul bag). Only once none are "
@@ -60,8 +62,9 @@ end)
 ------------------------------------------------------------------------------ slash
 local function Help()
   ns.Say(ns.KeyName() .. " with one key; containers opened for you")
-  ns.Line(ns.Cmd(ns.SLASH .. " delete") .. " - delete the cheapest junk item now (not in "
-    .. "combat, not quest items, not worth over " .. GetMoneyString(ns.MAX_VALUE, true) .. ")")
+  ns.Line(ns.Cmd(ns.SLASH .. " delete") .. " - delete the cheapest junk item now, from a bag "
+    .. "your loot can use, then loot (not in combat, not quest items, not worth over "
+    .. GetMoneyString(ns.MAX_VALUE, true) .. ")")
   ns.Line(ns.Cmd(ns.SLASH .. " junk <item>") .. " - always junk, whatever the quality "
     .. "(again to undo)")
   ns.Line(ns.Cmd(ns.SLASH .. " keep <item>") .. " - never junk, even if grey (again to undo)")
