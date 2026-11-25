@@ -11,11 +11,14 @@ grey stack, Ruined Pelt x5, and says so in chat](docs/before-after.png)
 
 Works on install; bind a key for the delete (Esc > Options > Keybindings > AddOns >
 MeioBags). Press it when your bags are full: it deletes the junk stack that sells for least,
-one per press, and says what went.
+one per press, and says what went. With the loot window open, it then loots.
 
+- Frees a slot your loot can use: never a reagent bag, soul bag or quiver slot that the
+  loot can't go in, even when cheaper junk sits there
 - Junk is your grey items, plus any you add with `/meiobags junk`, minus any you protect
   with `/meiobags keep`
 - Never deletes quest items, a stack that sells for more than 1 gold, or anything in combat
+  or a boss fight
 - Opens clams, sacks and unlocked lockboxes for you, one per click or key press; never in
   combat, while looting, at a vendor, bank, mailbox or auction house, or with full bags
 - Opening a vendor sells all your junk; hold Shift while opening to skip it
