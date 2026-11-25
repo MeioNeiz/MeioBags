@@ -4,7 +4,7 @@ One key deletes your cheapest junk when your bags are full.
 
 For WoW Forever.
 
-![Full bags: before, "Inventory is full."; with MeioBags, one key press deleted the cheapest
+![Full bags: before, "Inventory is full."; with Meio Bags, one key press deletes the cheapest
 grey stack, Ruined Pelt x5, and says so in chat](docs/before-after.png)
 
 ## What it does

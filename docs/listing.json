@@ -13,6 +13,11 @@
       "description": "Full bags: Inventory is full, then one key press deletes the cheapest grey stack and says so in chat"
     },
     {
+      "file": "vendor.png",
+      "title": "Sold at the vendor",
+      "description": "Open a vendor and your junk sells by itself; chat says how many items went and for how much"
+    },
+    {
       "file": "presses.png",
       "title": "One stack per press",
       "description": "Each press deletes the next cheapest junk; a stack worth over 1 gold is kept for the vendor"
