@@ -36,6 +36,12 @@ Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
   key and junk marks to Meio Bags (its vendor auto-sell stops too)
 - `/meiobags help`
 
+## Coming soon
+
+- Quest leftovers are junk once the quest is done (spare Gnoll Paws): the key deletes them
+  first, never while a quest in your log still wants them
+- See which junk goes next: a red X on it in Baganator and a line in its tooltip
+
 ## Install
 
 Use your addon manager (CurseForge, Wago), or unzip a GitHub release into
