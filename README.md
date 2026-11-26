@@ -1,6 +1,7 @@
 # Meio Bags
 
-One key deletes your cheapest junk when your bags are full.
+Bags full in the middle of a pull? One key deletes your cheapest junk item, and the vendor
+buys the rest when you visit.
 
 For WoW Forever.
 
