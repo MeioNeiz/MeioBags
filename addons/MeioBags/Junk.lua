@@ -1,7 +1,8 @@
 -- Junk: grey items plus the ones put on the junk list, minus the keep list, never quest
--- items. The key deletes one per press: extra Soul Shards first (MeioShards, when loaded),
--- else the junk stack that sells for least, if that is at most MAX_VALUE, from a bag the
--- waiting loot fits; with the loot window open it then loots. Never in combat.
+-- items except leftovers of a quest handed in (Quest.lua). The key deletes one per press:
+-- extra Soul Shards first (MeioShards, when loaded), else the junk stack that sells for
+-- least, if that is at most MAX_VALUE, from a bag the waiting loot fits; with the loot window
+-- open it then loots. Never in combat.
 -- DeleteCursorItem needs a hardware event, so only from the key, a click or a slash.
 local _, ns = ...
 
@@ -21,7 +22,9 @@ end
 function ns.IsJunk(itemID, quality, bag, slot)
   if not itemID then return false end
   local db = ns.db
-  if db.keep[itemID] or ns.IsQuestItem(itemID, bag, slot) then return false end
+  if db.keep[itemID] then return false end
+  if ns.IsLeftover(itemID, bag, slot) then return true end
+  if ns.IsQuestItem(itemID, bag, slot) then return false end
   if db.junk[itemID] then return true end
   if quality == nil then quality = C_Item.GetItemQualityByID(itemID) end
   return quality == POOR
@@ -107,7 +110,8 @@ function ns.Cheapest(loot)
         if useful then cur = best else cur = other end
         if not cur or value < cur.value then
           cur = { bag = bag, slot = slot, id = info.itemID, count = count,
-            link = info.hyperlink, value = value }
+            link = info.hyperlink, value = value,
+            quest = ns.db.leftover[info.itemID] ~= nil and ns.IsQuestItem(info.itemID) }
           if useful then best = cur else other = cur end
         end
       end
@@ -186,12 +190,22 @@ function ns.DeleteJunk()
   end
   local worth = j.value > 0 and (", sold for " .. Money(j.value)) or ""
   local after = #loot > 0 and "; looting" or ""
-  ns.Say(("deleted %s%s%s%s"):format(name, j.count > 1 and (" x" .. j.count) or "", worth,
-    after))
+  local why = j.quest and " (quest done)" or ""
+  ns.Say(("deleted %s%s%s%s%s"):format(name, j.count > 1 and (" x" .. j.count) or "", why,
+    worth, after))
   if #loot > 0 then
     lootAfter = true
     C_Timer.After(LOOT_WAIT, LootAll)
   end
+end
+
+-- -> what DeleteJunk would take now, nil when it would refuse (nothing cheap enough, price
+-- unknown, no junk where the waiting loot fits)
+function ns.NextDelete()
+  local loot = Waiting()
+  local j, other = ns.Cheapest(loot)
+  if not j and #loot == 0 then j = other end
+  if j and j.value <= ns.MAX_VALUE then return j end
 end
 
 function ns.Key()
@@ -210,6 +224,7 @@ end
 local function RefreshBags()
   local api = _G.Baganator and _G.Baganator.API
   if api and api.RequestItemButtonsRefresh then api.RequestItemButtonsRefresh() end
+  if ns.WindowRefresh then ns.WindowRefresh() end
 end
 ns.RefreshBags = RefreshBags
 
@@ -230,6 +245,6 @@ function ns.Mark(list, itemID)
   local on = not db[list][itemID]
   db[list][itemID] = on or nil
   if on then db[other][itemID] = nil end
-  RefreshBags()
+  ns.RefreshBags()
   return on
 end

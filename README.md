@@ -18,19 +18,25 @@ one per press, and says what went. With the loot window open, it then loots.
   loot can't go in, even when cheaper junk sits there
 - Junk is your grey items, plus any you add with `/meiobags junk`, minus any you protect
   with `/meiobags keep`
-- Never deletes quest items, a stack that sells for more than 1 gold, or anything in combat
-  or a boss fight
+- Quest leftovers are junk once the quest is handed in (spare Gnoll Paws), never while a
+  quest in your log still wants them
+- Never deletes other quest items, a stack that sells for more than 1 gold, or anything in
+  combat or a boss fight
 - Opens clams, sacks and unlocked lockboxes for you, one per click or key press; never in
   combat, while looting, at a vendor, bank, mailbox or auction house, or with full bags
 - Opening a vendor sells all your junk; hold Shift while opening to skip it
-- Baganator marks the same junk in your bags, unless you picked another junk plugin there
+- Baganator marks the same junk in your bags, unless you picked another junk plugin there,
+  and puts a red X on the item the key takes next
+- New, opt-in: MeioBags' own bag and bank windows (`/meiobags bags`, `/meiobags bank`) with
+  soul bag, quiver and reagent bag in their own rows, search, sort, categories and your
+  other characters' bags
 
 ![At a vendor: four grey stacks gone from the bags, and in chat "sold 4 junk items for 1
 gold 12 silver 97 copper"](docs/vendor.png)
 
 Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
 
-- `/meiobags delete`: delete the cheapest junk now
+- `/meiobags delete`: delete the cheapest junk now; `/meiobags next`: what it takes next
 - `/meiobags junk <item>`, `/meiobags keep <item>`: always or never junk (Shift-click the
   item into chat; again to undo)
 - `/meiobags list`: your junk and keep lists
@@ -39,12 +45,6 @@ Settings: Esc > Options > AddOns > MeioBags, or `/meiobags`.
 - `/meiobags rxp`: with RestedXP Guides, turn its Inventory Manager off and move its delete
   key and junk marks to Meio Bags (its vendor auto-sell stops too)
 - `/meiobags help`
-
-## Coming soon
-
-- Quest leftovers are junk once the quest is done (spare Gnoll Paws): the key deletes them
-  first, never while a quest in your log still wants them
-- See which junk goes next: a red X on it in Baganator and a line in its tooltip
 
 ## Install
 

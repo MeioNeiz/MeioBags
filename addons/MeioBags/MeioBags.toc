@@ -4,7 +4,7 @@
 ## Category: Meio
 ## IconTexture: Interface\Icons\INV_Misc_Bag_08
 ## AddonCompartmentFunc: MeioBags_OnAddonCompartmentClick
-## Version: 1.2.0
+## Version: 1.3.0
 ## Author: MeioNeiz
 ## X-Website: https://github.com/MeioNeiz/MeioBags
 ## X-License: MIT
@@ -15,7 +15,15 @@
 
 Core.lua
 Junk.lua
+Preview.lua
+Quest.lua
 Sell.lua
 Open.lua
 Takeover.lua
+Search.lua
+Grid.lua
+Categories.lua
+Window.lua
+Bank.lua
+Alts.lua
 Settings.lua

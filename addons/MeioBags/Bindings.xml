@@ -2,4 +2,7 @@
   <Binding name="MEIOBAGS_DELETE" header="MEIOBAGS" category="ADDONS">
     MeioBags.Key()
   </Binding>
+  <Binding name="MEIOBAGS_WINDOW" category="ADDONS">
+    MeioBags.ToggleWindow()
+  </Binding>
 </Bindings>

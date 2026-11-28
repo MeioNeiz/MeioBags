@@ -8,7 +8,9 @@ ns.SLASH = "/meiobags"
 ns.GOLD, ns.MUTED, ns.GOOD, ns.BAD = "|cffffd100", "|cff999999", "|cff80ff80", "|cffff8080"
 ns.SETTINGS_PATH = "Esc > Options > AddOns > MeioBags"
 ns.KEY_PATH = "Esc > Options > Keybindings > AddOns > MeioBags"
-ns.DEFAULTS = { shards = true, open = true, sell = true }
+ns.DEFAULTS = { shards = true, open = true, sell = true, quest = true, bagkey = false,
+  columns = 10, scale = 1, bankopen = false, bankbybag = false, alttips = false,
+  categoryview = false }
 
 function ns.Say(msg) print(PREFIX .. msg) end
 function ns.Line(msg) print("  " .. msg) end
@@ -83,5 +85,11 @@ ns.On("ADDON_LOADED", function(name)
   -- itemID -> true: always junk / never junk, whatever the quality
   db.junk = db.junk or {}
   db.keep = db.keep or {}
+  -- itemID -> questID handed in that named it (Quest.lua)
+  db.leftover = db.leftover or {}
+  -- "Name-Realm" -> saved bags, bank and gear (Alts.lua)
+  db.chars = db.chars or {}
+  -- the player's own categories, in order: { { name, search } } (Categories.lua)
+  db.categories = db.categories or {}
   ns.db = db
 end)
